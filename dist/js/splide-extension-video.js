@@ -8,7 +8,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Objec
  * Splide.js
  * Version  : 0.8.0
  * License  : MIT
- * Copyright: 2022 Naotoshi Fujita
+ * Copyright: 2024 Naotoshi Fujita
  */
 (function (factory) {
   typeof define === 'function' && define.amd ? define(factory) : factory();
@@ -625,7 +625,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Objec
       _AbstractVideoPlayer.prototype.destroy.call(this);
 
       var player = this.player;
-      var off = player.addEventListener.bind(player);
+      if (!player) return;
+      var off = player.removeEventListener.bind(player);
       off("play", this.onPlay);
       off("pause", this.onPause);
       off("ended", this.onEnded);

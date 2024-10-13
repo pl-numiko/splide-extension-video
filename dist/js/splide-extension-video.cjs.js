@@ -2,7 +2,7 @@
  * Splide.js
  * Version  : 0.8.0
  * License  : MIT
- * Copyright: 2022 Naotoshi Fujita
+ * Copyright: 2024 Naotoshi Fujita
  */
 'use strict';
 
@@ -553,7 +553,9 @@ class HTMLVideoPlayer extends AbstractVideoPlayer {
   destroy() {
     super.destroy();
     const { player } = this;
-    const off = player.addEventListener.bind(player);
+    if (!player)
+      return;
+    const off = player.removeEventListener.bind(player);
     off("play", this.onPlay);
     off("pause", this.onPause);
     off("ended", this.onEnded);

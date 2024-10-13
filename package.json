@@ -1,5 +1,5 @@
 {
-  "name": "@numiko/splide-extension-video",
+  "name": "splide-extension-video-numiko-destroy-method-fix",
   "version": "0.8.1",
   "description": "The Splide extension for embedding videos.",
   "author": "Naotoshi Fujita",
